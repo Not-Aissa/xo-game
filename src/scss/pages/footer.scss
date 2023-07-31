@@ -1,0 +1,15 @@
+@import "../mixins/flex/flex.scss";
+@import "../variables/spaces.scss";
+
+footer {
+  @include flex(row, center, center);
+  padding-top: $space-b-section;
+
+  .content {
+    font-weight: 400;
+
+    .developer {
+      font-weight: bold;
+    }
+  }
+}

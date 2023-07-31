@@ -1,0 +1,7 @@
+@import "../variables/sizes.scss";
+
+@media only screen and (min-width: $large) {
+  .container {
+    width: $large;
+  }
+}
