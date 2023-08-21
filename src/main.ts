@@ -1,5 +1,6 @@
 import dom from "./ts/helpers/classes/Dom";
-import { Button, Span } from "./ts/types/elements";
+import Button from "./ts/types/elements/Button";
+import Span from "./ts/types/elements/Span";
 
 const counterButton = dom.select<Button>("#counter_btn");
 const counterElm = dom.select<Span>("#count");
