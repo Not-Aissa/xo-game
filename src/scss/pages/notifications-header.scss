@@ -1,0 +1,43 @@
+@import "../mixins/flex/flex.scss";
+@import "../mixins/flex/flex-col.scss";
+
+.container .notifications-header {
+  @include flex-col;
+  gap: 0.5rem;
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+
+  .notification-section {
+    @include flex(row, start, center);
+    width: 15rem;
+    height: 3rem;
+    padding: 0.3rem 0.7rem;
+    background-color: var(--action-elm-bg);
+    color: var(--action-elm-color);
+    border-radius: $rounded;
+    cursor: pointer;
+    transition-duration: $smooth;
+
+    .content {
+      font-size: 0.9rem;
+      font-weight: bold;
+
+      &.normal {
+        color: var(--action-elm-color);
+      }
+
+      &.success {
+        color: green;
+      }
+
+      &.warning {
+        color: orange;
+      }
+
+      &.error {
+        color: red;
+      }
+    }
+  }
+}

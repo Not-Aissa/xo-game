@@ -5,48 +5,243 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/main.scss" />
-    <title>Vite + Scss + TypeScript</title>
+    <title>XO Game</title>
   </head>
-  <body class="light">
+  <body>
     <main id="app" class="container">
-      <header>
-        <section class="logo-section">
-          <a class="vite-link" href="https://vitejs.dev/" target="_blank">
-            <div class="vite">
-              <img src="/vite.svg" alt="vite" />
-            </div>
-          </a>
+      <header class="game-home-header">
+        <p>XO Game</p>
 
-          <a class="scss-link" href="https://sass-lang.com/" target="_blank">
-            <div class="scss">
-              <img src="/scss.svg" alt="scss" />
-            </div>
-          </a>
+        <button id="play_game_btn">Play Game</button>
+      </header>
 
-          <a
-            class="typescript-link"
-            href="https://www.typescriptlang.org/"
-            target="_blank"
-          >
-            <div class="typescript">
-              <img src="/typescript.svg" alt="typescript" />
-            </div>
-          </a>
+      <header class="game-choose-rows-header hide">
+        <section class="rows-section three-rows-section">
+          <p class="content">Three rows</p>
+
+          <img src="./xo-game-3-rows.png" alt="game-3-rows" />
+
+          <button class="rows-choose-btn" data-rows="3">Choose</button>
         </section>
 
-        <section class="title-section">
-          <p class="text">Vite + Scss + TypeScript</p>
+        <section class="rows-section four-rows-section">
+          <p class="content">Four rows</p>
+
+          <img src="./xo-game-4-rows.png" alt="game-4-rows" />
+
+          <button class="rows-choose-btn" data-rows="4">Choose</button>
         </section>
 
-        <section class="counter-section">
-          <button id="counter_btn">Count is <span id="count"></span></button>
+        <section class="rows-section five-rows-section">
+          <p class="content">Five rows</p>
+
+          <img src="./xo-game-5-rows.png" alt="game-5-rows" />
+
+          <button class="rows-choose-btn" data-rows="5">Choose</button>
         </section>
       </header>
 
+      <header class="game-choose-player-header hide">
+        <section class="player-section friend-section">
+          <p class="content">You vs Friend</p>
+
+          <button class="player-choose-btn" data-player="friend">Choose</button>
+        </section>
+
+        <section class="player-section computer-section">
+          <p class="content">You vs Computer</p>
+
+          <button class="player-choose-btn" data-player="computer">
+            Choose
+          </button>
+        </section>
+
+        <section class="player-section friend-computer-section">
+          <p class="content">You vs Friend vs Computer</p>
+
+          <button
+            class="player-choose-btn disable"
+            data-player="friend-computer"
+          >
+            Choose
+          </button>
+        </section>
+      </header>
+
+      <header class="game-header hide">
+        <nav>
+          <p class="title">XO Game</p>
+
+          <section class="actions-section">
+            <button id="exit_game_btn">Exit</button>
+
+            <button id="go_settings_btn">Settings</button>
+          </section>
+        </nav>
+
+        <section class="choose-play-type-section">
+          <p class="content">Choose what you want to play with:</p>
+
+          <section class="xo-choose-section">
+            <div class="game-choice x-container" data-choice="x">
+              <p>x</p>
+            </div>
+
+            <div class="game-choice o-container" data-choice="o">
+              <p>o</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="cpt-actions-section hide">
+          <button id="reset_game_btn">Reset game</button>
+        </section>
+
+        <section class="game-play-section hide">
+          <p class="content">Press squares to select your play type:</p>
+
+          <section class="play-canvas-section">
+            <div class="canvas-square tl-square" data-square="tl">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square tc1-square" data-square="tc1">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square tc2-square" data-square="tc2">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square tc3-square" data-square="tc3">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square tr-square" data-square="tr">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square cl-square" data-square="cl">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square cc1-square" data-square="cc1">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square cc2-square" data-square="cc2">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square cc3-square" data-square="cc3">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square cr-square" data-square="cr">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square bl-square" data-square="bl">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square bc1-square" data-square="bc1">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square bc2-square" data-square="bc2">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square bc3-square" data-square="bc3">
+              <p class="play-type"></p>
+            </div>
+
+            <div class="canvas-square br-square" data-square="br">
+              <p class="play-type"></p>
+            </div>
+          </section>
+        </section>
+
+        <section class="game-info-section hide">
+          <div class="players-info">
+            <div class="player-info your-info">
+              <p class="title">You</p>
+
+              <p class="win-times">
+                Win times: <span id="your_win_times"></span>
+              </p>
+            </div>
+
+            <div class="player-info computer-info">
+              <p class="title">Computer</p>
+
+              <p class="win-times">
+                Win times: <span id="computer_win_times"></span>
+              </p>
+            </div>
+
+            <div class="player-info friend-info hide">
+              <p class="title">Friend</p>
+
+              <p class="win-times">
+                Win times: <span id="friend_win_times">0</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="game-info">
+            <p class="game-result">Result: <span id="game_result"></span></p>
+          </div>
+        </section>
+      </header>
+
+      <header class="settings-header hide">
+        <nav>
+          <p class="title">XO Game Settings</p>
+
+          <section class="actions-section">
+            <button id="back_game_btn">Back</button>
+          </section>
+        </nav>
+
+        <section class="settings-section">
+          <div class="setting theme-setting">
+            <p class="setting-name">Theme</p>
+
+            <select id="theme_select">
+              <option value="light">Light</option>
+
+              <option value="dark" selected>Dark</option>
+            </select>
+          </div>
+
+          <div class="setting notifications-setting">
+            <p class="setting-name">Show notifications</p>
+
+            <select id="notifications_state_select">
+              <option value="true" selected>Yes</option>
+
+              <option value="false">No</option>
+            </select>
+          </div>
+
+          <div class="setting reset-win-times-setting">
+            <p class="setting-name">Reset win times</p>
+
+            <button id="reset_win_times_btn">Reset</button>
+          </div>
+        </section>
+      </header>
+
+      <header class="notifications-header"></header>
+
       <footer>
-        <p class="content">
-          Developed by <span class="developer">Aissa Bedr</span>
+        <p class="developer">
+          Game developed by <span id="game_developer"></span>
         </p>
+
+        <p class="version">Game version <span id="game_version"></span></p>
       </footer>
     </main>
     <script type="module" src="/src/main.ts"></script>

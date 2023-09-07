@@ -1,0 +1,19 @@
+@import "../reset/reset-element.scss";
+
+@mixin dtButton {
+  @include reset-element;
+  font-weight: 500;
+  background-color: var(--action-elm-bg);
+  color: var(--action-elm-color);
+  border-radius: $rounded;
+  cursor: pointer;
+
+  &.disable {
+    opacity: 0.5;
+    cursor: no-drop;
+  }
+
+  &:active:not(.disable) {
+    transform: scale(0.95);
+  }
+}

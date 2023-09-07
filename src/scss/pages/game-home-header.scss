@@ -1,0 +1,27 @@
+@import "../mixins/flex/flex-col.scss";
+@import "../mixins/elements/dtButton.scss";
+
+.container .game-home-header {
+  @include flex-col;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  left: $half;
+  top: $half;
+  transform: translate(-$half, -$half);
+
+  &.hide {
+    display: none;
+  }
+
+  p {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  button {
+    @include dtButton;
+    width: 15rem;
+    height: 2rem;
+  }
+}

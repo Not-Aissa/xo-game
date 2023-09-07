@@ -1,0 +1,32 @@
+@import "../mixins/flex/flex-row.scss";
+@import "../mixins/flex/flex-col.scss";
+@import "../mixins/elements/dtButton.scss";
+
+.container .game-choose-player-header {
+  @include flex-row;
+  gap: 1rem;
+  position: absolute;
+  left: $half;
+  top: $half;
+  transform: translate(-$half, -$half);
+
+  &.hide {
+    display: none;
+  }
+
+  .player-section {
+    @include flex-col;
+    gap: 0.5rem;
+    width: 15rem;
+
+    .content {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    button {
+      @include dtButton;
+      height: 2rem;
+    }
+  }
+}

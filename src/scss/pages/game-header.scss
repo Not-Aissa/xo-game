@@ -1,0 +1,200 @@
+@import "../mixins/flex/flex.scss";
+@import "../mixins/flex/flex-row.scss";
+@import "../mixins/flex/flex-col.scss";
+@import "../mixins/grid/grid-cols.scss";
+@import "../mixins/elements/dtButton.scss";
+
+.container .game-header {
+  margin-top: 0.25rem;
+
+  &.hide {
+    display: none;
+  }
+
+  nav {
+    @include flex(row, space-between, center);
+
+    .title {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .actions-section {
+      button {
+        @include dtButton;
+        padding: 0.3rem 0.7rem;
+      }
+    }
+  }
+
+  .choose-play-type-section {
+    margin-top: 1rem;
+
+    .content {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .xo-choose-section {
+      @include flex-row;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+
+      .game-choice {
+        @include flex(row, center, center);
+        width: 5rem;
+        height: 5rem;
+        border: 1px solid var(--action-elm-bg);
+        border-radius: $rounded;
+        transition-duration: $smooth;
+        cursor: pointer;
+
+        &:hover:not(.disable) {
+          background-color: var(--action-elm-bg);
+          color: var(--action-elm-color);
+        }
+
+        &.active {
+          background-color: var(--action-elm-bg);
+          color: var(--action-elm-color);
+        }
+
+        &.disable {
+          opacity: 0.5;
+          cursor: no-drop;
+        }
+
+        p {
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .cpt-actions-section {
+    margin-top: 0.5rem;
+
+    &.hide {
+      display: none;
+    }
+
+    button {
+      @include dtButton;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+
+  .game-play-section {
+    margin-top: 0.5rem;
+
+    &.hide {
+      display: none;
+    }
+
+    .content {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .play-canvas-section {
+      margin-top: 0.5rem;
+
+      &.three-rows {
+        @include grid-cols(3);
+      }
+
+      &.four-rows {
+        @include grid-cols(4);
+      }
+
+      &.five-rows {
+        @include grid-cols(5);
+      }
+
+      gap: 0.25rem;
+
+      .canvas-square {
+        @include flex(column, center, center);
+        height: 6rem;
+        border: 1px solid var(--action-elm-bg);
+        border-radius: $rounded;
+        cursor: pointer;
+
+        &.hide {
+          display: none;
+        }
+
+        &.disable {
+          opacity: 0.5;
+          cursor: no-drop;
+        }
+
+        .play-type {
+          font-size: 2rem;
+          font-weight: 500;
+
+          &.you {
+            color: $main_color;
+          }
+
+          &.computer,
+          &.friend {
+            color: $computer_color;
+          }
+        }
+      }
+    }
+  }
+
+  .game-info-section {
+    margin-top: 0.5rem;
+
+    &.hide {
+      display: none;
+    }
+
+    .players-info {
+      @include flex(row, space-between, center);
+
+      .player-info {
+        @include flex-col;
+        gap: 0.25rem;
+
+        &.hide {
+          display: none;
+        }
+
+        .title {
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
+
+        .win-times {
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
+      }
+
+      .computer-info,
+      .friend-info {
+        align-items: end;
+      }
+    }
+
+    .game-info {
+      margin-top: 0.5rem;
+      text-align: center;
+
+      .game-result {
+        font-size: 1rem;
+        font-weight: 500;
+
+        span {
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
